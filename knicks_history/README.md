@@ -1,8 +1,8 @@
 # KnicksHistory
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/knicks_history`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a CLI application that utilizes Nokogiri to scrape information about the New York Knicks from BasketballReference.com
+and provide this information, organized by season, in a clean command line output. This app uses a menu for navigation, and
+implements and object oriented structure to create and display the individual Knicks seasons as scraped from the website.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Just follow the menu prompts, and select the year for which you would like to see statistics for.
 
 ## Development
 

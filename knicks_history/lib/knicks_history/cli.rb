@@ -10,7 +10,7 @@ class KnicksHistory::CLI
   def start
     input = ""
     while true
-      puts "\nWhich season would you like to see stats for? (Enter a year between 1946-2017) or type all to list all seasons or type exit."
+      puts "\nWhich season would you like to see stats for? (Enter a year between 1946-2017) or type exit."
       input = gets.strip
       year = input.to_i
       if year < 2018 && year > 1945

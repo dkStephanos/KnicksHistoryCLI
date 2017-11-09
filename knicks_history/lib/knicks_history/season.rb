@@ -2,7 +2,7 @@ class KnicksHistory::Season
 
   attr_accessor :year, :wins, :losses, :win_percentage, :off_rating, :def_rating, :best_player
 
-  @@all = []
+  @@all = {}
 
   def initialize(season_hash = nil)
     if season_hash != nil
@@ -13,7 +13,7 @@ class KnicksHistory::Season
       @off_rating = season_hash[:off_rating]
       @def_rating = season_hash[:def_rating]
       @best_player = season_hash[:best_player]
-      @@all << self
+      @@all[@year] = self
     end
   end
 

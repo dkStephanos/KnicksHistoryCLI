@@ -16,11 +16,14 @@ class KnicksHistory::CLI
       if year < 2018 && year > 1945
         output_stats(input)
         puts "\nOther Stats (enter the number of the statistic you want to see)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
-        input = gets.strip
-        case input
+        secondary_input = gets.strip
+        case secondary_input
         when "1"
+          output_off_rtng(input)
         when "2"
+          output_def_rtng(input)
         when "3"
+          output_best_player(input)
         else
           puts "\nSorry, must enter a number 1-3"
         end
@@ -39,6 +42,21 @@ class KnicksHistory::CLI
     puts "\n\nYear  Wins  Losses  Win%" #  Off Rtng  Def Rtng  Best Player(WS)"
     #binding.pry
     puts "#{season[1].year}   #{season[1].wins}     #{season[1].losses}    #{season[1].win_percentage}" #{}"   #{season[1].off_rating}     #{season[1].def_rating}    #{season[1].best_player_ws}"
+  end
+
+  def output_off_rtng(year)
+    season = KnicksHistory::Season.find_season(year)
+    puts "\n\nOff Rtng\n#{season[1].off_rating}"
+  end
+
+  def output_def_rtng(year)
+    season = KnicksHistory::Season.find_season(year)
+    puts "\n\nDef Rtng\n#{season[1].def_rating}"
+  end
+
+  def output_best_player(year)
+    season = KnicksHistory::Season.find_season(year)
+    puts "\n\nBest Player(WS)\n#{season[1].best_player_ws}"
   end
 
 end

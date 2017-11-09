@@ -22,9 +22,13 @@ class KnicksHistory::Season
   end
 
   def self.find_season(year)
-    @@all.find do |season|
+    @@all.detect do |season|
       season[0] == year.to_s
     end
+  end
+
+  def year
+    @year
   end
 
 end

@@ -43,9 +43,9 @@ class KnicksHistory::CLI
   def output_stats(year)
     #prints stats for that year
     season = KnicksHistory::Season.find_season(year)
-    puts "\n\nYear  Wins  Losses  Win%" #  Off Rtng  Def Rtng  Best Player(WS)"
+    puts "\n\nYear  Wins  Losses  Win%"
     #binding.pry
-    puts "#{season[1].year}   #{season[1].wins}     #{season[1].losses}    #{season[1].win_percentage}" #{}"   #{season[1].off_rating}     #{season[1].def_rating}    #{season[1].best_player_ws}"
+    puts "#{season[1].year}   #{season[1].wins}     #{season[1].losses}    #{season[1].win_percentage}"
   end
 
   def output_off_rtng(year)

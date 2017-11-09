@@ -17,10 +17,8 @@ class KnicksHistory::Season
     end
   end
 
-  def self.create_from_page(page)
-    stats = {}
-
-    KnicksHistory::Season.new(stats)
+  def all
+    @@all?
   end
 
 

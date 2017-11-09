@@ -18,7 +18,7 @@ class KnicksHistory::Season
   end
 
   def all
-    @@all?
+    @@all
   end
 
 

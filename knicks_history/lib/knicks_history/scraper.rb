@@ -12,6 +12,7 @@ class KnicksHistory::Scraper
     data_hash = {}
     scrape_seasons_index.each do |season|
       data_hash[:year] = season.css("th a").text.match(/\d{4}/)
+      binding.pry
       data_hash[:wins] = season.css("td[data-stat = wins]").text
       data_hash[:losses] = season.css("td[data-stat = losses]").text
       data_hash[:win_percentage] = season.css("td[data-stat = win_loss_pct]").text

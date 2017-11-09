@@ -11,12 +11,15 @@ class KnicksHistory::CLI
     input = ""
     while true
       puts "\nWhich season would you like to see stats for? (Enter a year between 1946-2017) or type exit."
-      input = gets.strip.to_i
-      if input < 2018 && input > 1945
+      input = gets.strip
+      year = input.to_i
+      if year < 2018 && year > 1945
         output_stats(input)
-      elsif input == exit
-        puts "Thanks for using my gem! Go Knicks!"
+      elsif input == "exit"
+        puts "\n\nThanks for using my gem! Go Knicks!"
         break
+      else
+        puts "\nSorry, no season found for that selection. Try again."
       end
     end
   end

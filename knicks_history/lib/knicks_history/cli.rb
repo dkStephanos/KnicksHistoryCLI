@@ -23,6 +23,8 @@ class KnicksHistory::CLI
 
   def output_stats(year)
     #prints stats for that year
+    season = KnicksHistory::Season.find_season(year)
+    puts season
   end
 
 end

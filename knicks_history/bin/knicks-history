@@ -3,8 +3,10 @@
 require_relative "../lib/knicks_history"
 
 nykScraper = KnicksHistory::Scraper.new
+#doc = nykScraper.get_page
 nykScraper.make_seasons
-#season_year = doc.css("#NYK tr th a").text
+puts KnicksHistory::Season.all
+#season_year = doc.css("#NYK tbody tr th a").text
 #puts season_year.match(/\d{4}/)
 #wins = doc.css("#NYK td[data-stat = wins]")
 #puts wins.text

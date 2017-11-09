@@ -17,6 +17,7 @@ class KnicksHistory::CLI
         puts "Thanks for using my gem! Go Knicks!"
         break
       end
+    end
   end
 
   def output_stats(year)

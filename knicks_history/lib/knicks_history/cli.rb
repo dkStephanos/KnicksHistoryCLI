@@ -16,7 +16,7 @@ class KnicksHistory::CLI
       if year < 2018 && year > 1945
         output_stats(input)
         while true
-          puts "\nOther Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
+          puts "\nAdvanced Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
           secondary_input = gets.strip
           case secondary_input
           when "1"

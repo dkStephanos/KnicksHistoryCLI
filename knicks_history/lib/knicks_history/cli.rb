@@ -1,7 +1,8 @@
 class KnicksHistory::CLI
 
   def call
-    WorldsBestRestaurants::Scraper.new
+    scraper = WorldsBestRestaurants::Scraper.new
+    scraper.make_seasons
     puts "New York Knicks - Statistics by Season"
     start
   end

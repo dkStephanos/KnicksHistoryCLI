@@ -21,5 +21,10 @@ class KnicksHistory::Season
     @@all
   end
 
+  def find_season(year)
+    @@all.find do |season|
+      season[:year] == year.to_sym
+    end
+  end
 
 end

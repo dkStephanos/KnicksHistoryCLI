@@ -15,17 +15,21 @@ class KnicksHistory::CLI
       year = input.to_i
       if year < 2018 && year > 1945
         output_stats(input)
-        puts "\nOther Stats (enter the number of the statistic you want to see)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
-        secondary_input = gets.strip
-        case secondary_input
-        when "1"
-          output_off_rtng(input)
-        when "2"
-          output_def_rtng(input)
-        when "3"
-          output_best_player(input)
-        else
-          puts "\nSorry, must enter a number 1-3"
+        while true
+          puts "\nOther Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
+          secondary_input = gets.strip
+          case secondary_input
+          when "1"
+            output_off_rtng(input)
+          when "2"
+            output_def_rtng(input)
+          when "3"
+            output_best_player(input)
+          when "back"
+            break
+          else
+            puts "\nSorry, must enter a number 1-3"
+          end
         end
       elsif input == "exit"
         puts "\n\nThanks for using my gem! Go Knicks!"

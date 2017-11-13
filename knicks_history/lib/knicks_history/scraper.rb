@@ -15,7 +15,7 @@ class KnicksHistory::Scraper
       data_hash[:wins] = season.css("td[data-stat = wins]").text
       data_hash[:losses] = season.css("td[data-stat = losses]").text
       data_hash[:win_percentage] = season.css("td[data-stat = win_loss_pct]").text
-      if data_hash[:off_rating] = season.css("td[data-stat = off_rtg]").text == ""
+      if season.css("td[data-stat = off_rtg]").text == ""
         data_hash[:off_rating] = "N/A"
         data_hash[:def_rating] = "N/A"
       else
@@ -23,6 +23,12 @@ class KnicksHistory::Scraper
         data_hash[:def_rating] = season.css("td[data-stat = def_rtg]").text
       end
       data_hash[:best_player_ws] = season.css("td[data-stat = top_ws]").text
+      data_hash[:pace] = season.css("td[data-stat = pace]").text
+      if season.css("td[data-stat = rank_team_playoffs]").text == ""
+        data_hash[:playoff_results] = "Missed Playoffs"
+      else
+        data_hash[:playoff_results] = season.css("td[data-stat = rank_team_playoffs]").text
+      end
       KnicksHistory::Season.new(data_hash)
     end
   end

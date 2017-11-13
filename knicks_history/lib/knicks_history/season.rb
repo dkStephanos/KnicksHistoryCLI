@@ -1,6 +1,6 @@
 class KnicksHistory::Season
 
-  attr_accessor :year, :wins, :losses, :win_percentage, :off_rating, :def_rating, :best_player_ws
+  attr_accessor :year, :wins, :losses, :win_percentage, :off_rating, :def_rating, :best_player_ws, :pace, :playoff_results
 
   @@all = {}
 
@@ -13,6 +13,8 @@ class KnicksHistory::Season
       @off_rating = season_hash[:off_rating]
       @def_rating = season_hash[:def_rating]
       @best_player_ws = season_hash[:best_player_ws]
+      @pace = season_hash[:pace]
+      @playoff_results = season_hash[:playoff_results]
       @@all[@year] = self
     end
   end

@@ -16,7 +16,7 @@ class KnicksHistory::CLI
       if year < 2018 && year > 1945
         output_stats(input)
         while true
-          puts "\nAdvanced Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares"
+          puts "\nAdvanced Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares\n4. Offensive Pace\n5. Playoff Results"
           secondary_input = gets.strip
           case secondary_input
           when "1"
@@ -25,6 +25,10 @@ class KnicksHistory::CLI
             output_def_rtng(input)
           when "3"
             output_best_player(input)
+          when "4"
+            output_pace(input)
+          when "5"
+            output_playoff_results(input)
           when "back"
             break
           else
@@ -61,6 +65,16 @@ class KnicksHistory::CLI
   def output_best_player(year)
     season = KnicksHistory::Season.find_season(year)
     puts "\n\nBest Player(WS)\n#{season[1].best_player_ws}"
+  end
+
+  def output_pace(year)
+    season = KnicksHistory::Season.find_season(year)
+    puts "\n\nPace\n#{season[1].pace}"
+  end
+
+  def output_playoff_results(year)
+    season = KnicksHistory::Season.find_season(year)
+    puts "\n\nPlayoff Results\n#{season[1].playoff_results}"
   end
 
 end

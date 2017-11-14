@@ -14,21 +14,22 @@ class KnicksHistory::CLI
       input = gets.strip
       year = input.to_i
       if year < 2018 && year > 1945
-        output_stats(input)
+        season = KnicksHistory::Season.find_season(year)
+        output_stats(season)
         while true
           puts "\nAdvanced Stats (enter the number of the statistic you want to see or type back)\n1. Offensive Rating\n2. Defensive Rating\n3. Best Player w/ Win Shares\n4. Offensive Pace\n5. Playoff Results"
           secondary_input = gets.strip
           case secondary_input
           when "1"
-            output_off_rtng(input)
+            output_off_rtng(season)
           when "2"
-            output_def_rtng(input)
+            output_def_rtng(season)
           when "3"
-            output_best_player(input)
+            output_best_player(season)
           when "4"
-            output_pace(input)
+            output_pace(season)
           when "5"
-            output_playoff_results(input)
+            output_playoff_results(season)
           when "back"
             break
           else
@@ -44,36 +45,30 @@ class KnicksHistory::CLI
     end
   end
 
-  def output_stats(year)
+  def output_stats(season)
     #prints stats for that year
-    season = KnicksHistory::Season.find_season(year)
     puts "\n\nYear  Wins  Losses  Win%"
     #binding.pry
     puts "#{season[1].year}   #{season[1].wins}     #{season[1].losses}    #{season[1].win_percentage}"
   end
 
-  def output_off_rtng(year)
-    season = KnicksHistory::Season.find_season(year)
+  def output_off_rtng(season)
     puts "\n\nOff Rtng\n#{season[1].off_rating}"
   end
 
-  def output_def_rtng(year)
-    season = KnicksHistory::Season.find_season(year)
+  def output_def_rtng(season)
     puts "\n\nDef Rtng\n#{season[1].def_rating}"
   end
 
-  def output_best_player(year)
-    season = KnicksHistory::Season.find_season(year)
+  def output_best_player(season)
     puts "\n\nBest Player(WS)\n#{season[1].best_player_ws}"
   end
 
-  def output_pace(year)
-    season = KnicksHistory::Season.find_season(year)
+  def output_pace(season)
     puts "\n\nPace\n#{season[1].pace}"
   end
 
-  def output_playoff_results(year)
-    season = KnicksHistory::Season.find_season(year)
+  def output_playoff_results(season)
     puts "\n\nPlayoff Results\n#{season[1].playoff_results}"
   end
 
